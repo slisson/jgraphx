@@ -525,15 +525,7 @@ public class mxGraphTransferable implements Transferable, UIResource,
 					.println("error initializing javax.swing.plaf.basic.BasicTranserable");
 		}
 
-		try
-		{
-			dataFlavor = new DataFlavor(DataFlavor.javaSerializedObjectMimeType
-					+ "; class=com.mxgraph.swing.util.mxGraphTransferable");
-		}
-		catch (ClassNotFoundException cnfe)
-		{
-			// do nothing
-		}
+        dataFlavor = new DataFlavor(mxGraphTransferable.class, "Graph Object");
 	}
 
 }
