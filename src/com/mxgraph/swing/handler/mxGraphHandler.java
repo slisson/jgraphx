@@ -1152,6 +1152,7 @@ public class mxGraphHandler extends mxMouseAdapter implements
 	 */
 	public void drop(DropTargetDropEvent e)
 	{
+      try {
 		if (canImport)
 		{
 			mxGraphTransferHandler handler = getGraphTransferHandler(e);
@@ -1166,6 +1167,10 @@ public class mxGraphHandler extends mxMouseAdapter implements
 
 			mouseReleased(event);
 		}
+      } catch (Exception ex) {
+        System.err.println(ex.getMessage());
+        ex.printStackTrace(System.err);
+      }
 	}
 
 	/**
