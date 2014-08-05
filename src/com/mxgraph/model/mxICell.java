@@ -4,6 +4,8 @@
  */
 package com.mxgraph.model;
 
+import com.mxgraph.shape.mxIShape;
+
 /**
  * Defines the requirements for a cell that can be used in an mxGraphModel.
  */
@@ -271,4 +273,5 @@ public interface mxICell
 	 */
 	Object clone() throws CloneNotSupportedException;
 
+    mxIShape getShape();
 }

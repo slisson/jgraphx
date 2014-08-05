@@ -225,8 +225,12 @@ public class mxGraphics2DCanvas extends mxBasicCanvas
 	 */
 	public Object drawCell(mxCellState state)
 	{
-		Map<String, Object> style = state.getStyle();
-		mxIShape shape = getShape(style);
+        Map<String, Object> style = state.getStyle();
+        
+        mxIShape shape = state.getShape();
+        if (shape == null) {
+            shape = getShape(style);
+        }
 
 		if (g != null && shape != null)
 		{

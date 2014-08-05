@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.mxgraph.model.mxICell;
+import com.mxgraph.shape.mxIShape;
 import com.mxgraph.util.mxPoint;
 import com.mxgraph.util.mxRectangle;
 
@@ -355,6 +357,14 @@ public class mxCellState extends mxRectangle
 	{
 		this.segments = segments;
 	}
+
+    public mxIShape getShape() {
+        if (cell instanceof mxICell) {
+            return ((mxICell)cell).getShape();
+        } else {
+            return null;
+        }
+    }
 
 	/**
 	 * Returns the label bounds.
