@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mxgraph.shape.mxIMarker;
 import com.mxgraph.shape.mxIShape;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -84,6 +85,8 @@ public class mxCell implements mxICell, Cloneable, Serializable
 	protected List<Object> children, edges;
 
     protected mxIShape shape;
+    protected mxIMarker edgeStartMarker;
+    protected mxIMarker edgeEndMarker;
 
 	/**
 	 * Constructs a new cell with an empty user object.
@@ -618,7 +621,25 @@ public class mxCell implements mxICell, Cloneable, Serializable
         return this.shape;
     }
 
-    /**
+    public void setEdgeStartMarker(mxIMarker marker) {
+      edgeStartMarker = marker;
+    }
+
+    @Override
+    public mxIMarker getEdgeStartMarker() {
+      return edgeStartMarker;
+    }
+
+    public void setEdgeEndMarker(mxIMarker marker) {
+      edgeEndMarker = marker;
+    }
+
+    @Override
+    public mxIMarker getEdgeEndMarker() {
+      return edgeEndMarker;
+    }
+
+  /**
 	 * Returns a clone of the user object. This implementation clones any XML
 	 * nodes or otherwise returns the same user object instance.
 	 */

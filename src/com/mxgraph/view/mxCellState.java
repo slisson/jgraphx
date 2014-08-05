@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mxgraph.model.mxICell;
+import com.mxgraph.shape.mxIMarker;
 import com.mxgraph.shape.mxIShape;
 import com.mxgraph.util.mxPoint;
 import com.mxgraph.util.mxRectangle;
@@ -361,6 +362,22 @@ public class mxCellState extends mxRectangle
     public mxIShape getShape() {
         if (cell instanceof mxICell) {
             return ((mxICell)cell).getShape();
+        } else {
+            return null;
+        }
+    }
+
+    public mxIMarker getEdgeStartMarker() {
+        if (cell instanceof mxICell) {
+            return ((mxICell)cell).getEdgeStartMarker();
+        } else {
+            return null;
+        }
+    }
+
+    public mxIMarker getEdgeEndMarker() {
+        if (cell instanceof mxICell) {
+            return ((mxICell)cell).getEdgeEndMarker();
         } else {
             return null;
         }

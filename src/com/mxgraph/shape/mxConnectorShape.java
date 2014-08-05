@@ -142,8 +142,11 @@ public class mxConnectorShape extends mxBasicShape
 		pe = (mxPoint) pe.clone();
 		pe.setX(pe.getX() - strokeX / 2.0);
 		pe.setY(pe.getY() - strokeY / 2.0);
-		
-		mxIMarker marker = mxMarkerRegistry.getMarker(type);
+
+        mxIMarker marker = source ? state.getEdgeStartMarker() : state.getEdgeEndMarker();
+        if (marker == null) {
+		  marker = mxMarkerRegistry.getMarker(type);
+        }
 		
 		if (marker != null)
 		{

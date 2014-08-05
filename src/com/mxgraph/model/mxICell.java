@@ -4,6 +4,7 @@
  */
 package com.mxgraph.model;
 
+import com.mxgraph.shape.mxIMarker;
 import com.mxgraph.shape.mxIShape;
 
 /**
@@ -274,4 +275,7 @@ public interface mxICell
 	Object clone() throws CloneNotSupportedException;
 
     mxIShape getShape();
+    mxIMarker getEdgeStartMarker();
+    mxIMarker getEdgeEndMarker();
+
 }
