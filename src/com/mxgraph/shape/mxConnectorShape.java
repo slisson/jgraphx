@@ -5,6 +5,7 @@
 package com.mxgraph.shape;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,12 +43,20 @@ public class mxConnectorShape extends mxBasicShape
 				canvas.getGraphics().setStroke(canvas.createStroke(style));
 			}
 
-			translatePoint(pts, 0,
-					paintMarker(canvas, state, true));
-			translatePoint(
-					pts,
-					pts.size() - 1,
-					paintMarker(canvas, state, false));
+            Graphics2D prevGraphics = canvas.getGraphics();
+            Graphics2D graphicsCopy = (Graphics2D)prevGraphics.create();
+            try {
+              canvas.setGraphics(graphicsCopy);
+			  translatePoint(pts, 0,
+                  paintMarker(canvas, state, true));
+			  translatePoint(
+			      pts,
+			      pts.size() - 1,
+				  paintMarker(canvas, state, false));
+            } finally {
+              canvas.setGraphics(prevGraphics);
+              graphicsCopy.dispose();
+            }
 
 			if (dashed)
 			{
