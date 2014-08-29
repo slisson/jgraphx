@@ -504,7 +504,7 @@ public class mxCellStatePreview
 			mxCellState state = it.next();
 			canvas.getGraphics().setComposite(
 					AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-							getOpacityForCell(state.getCell())));
+							opacity));
 			paintPreviewState(canvas, state);
 		}
 
