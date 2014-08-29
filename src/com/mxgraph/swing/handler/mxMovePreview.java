@@ -390,6 +390,9 @@ public class mxMovePreview extends mxEventSource
 			{
 				repaint(dirty);
 			}
+
+            // Hack. Calculation of the dirty regions seems to be wrong.
+            repaint(null);
 		}
 
 		if (isHideSelectionHandler())
